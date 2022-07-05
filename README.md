@@ -93,5 +93,5 @@ public String oddOrEven(int number) {
 ## Coverage 
 
 Run with coverage test. (IDE support eclipse or IDEA)
-
+![test coverage](https://github.com/sundalei/junit5-demo/blob/main/coverage.png)
 # Mockito Testing
