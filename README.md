@@ -93,5 +93,29 @@ public String oddOrEven(int number) {
 ## Coverage 
 
 Run with coverage test. (IDE support eclipse or IDEA)
-![test coverage](https://github.com/sundalei/junit5-demo/blob/main/coverage.png)
+![test coverage](coverage.png)
 # Mockito Testing
+SayHello method from Greeting changed. Now, sayHello will retrieve name from a datasource. We retrieve name from names.csv.
+To make the test pass. we need to use mock test.
+```java
+@Test
+	public void testSayHello() {
+		NameGenerator generator = Mockito.mock(NameGenerator.class);
+		Mockito.when(generator.generateName()).thenReturn("leo");
+
+		Greeting greeting = new Greeting();
+		greeting.setGenerator(generator);
+		assertEquals("Hello leo. Welcome!", greeting.sayHello());
+	}
+```
+In order to test if NameGenerator function, we need to know we get actual name. Test return greeting with regex pattern.
+```java 
+@Test
+	public void testSayHello() {
+
+		Greeting greeting = new Greeting();
+		boolean matched = greeting.sayHello().matches("Hello [a-zA-Z]+. Welcome!");
+		assertTrue(matched);
+	}
+
+```
