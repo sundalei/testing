@@ -20,33 +20,29 @@ public class NumberCheckerTest {
 	@Test
 	@DisplayName("45 is an odd number")
 	public void testOddOrEven_45() {
-		
-		NumberChecker numberChecker = new NumberChecker();
-		assertEquals("45 is an odd number", numberChecker.oddOrEven(45));
+
+		assertEquals("45 is an odd number", checker.oddOrEven(45));
 	}
 	
 	@Test
 	@DisplayName("42 is an even number")
 	public void testOddOrEven_42() {
 		
-		NumberChecker numberChecker = new NumberChecker();
-		assertEquals("42 is an even number", numberChecker.oddOrEven(42));
+		assertEquals("42 is an even number", checker.oddOrEven(42));
 	}
 	
 	@Test
 	@DisplayName("0 is an even number")
 	public void testOddOrEven_0() {
 		
-		NumberChecker numberChecker = new NumberChecker();
-		assertEquals("0 is an even number", numberChecker.oddOrEven(0));
+		assertEquals("0 is an even number", checker.oddOrEven(0));
 	}
 	
 	@Test
 	@DisplayName("-45 is an odd number")
 	public void testOddOrEven_Negative_45() {
 		
-		NumberChecker numberChecker = new NumberChecker();
-		assertEquals("-45 is an odd number", numberChecker.oddOrEven(-45));
+		assertEquals("-45 is an odd number", checker.oddOrEven(-45));
 	}
 
 	@ParameterizedTest
@@ -57,7 +53,6 @@ public class NumberCheckerTest {
 		"-45,-45 is an odd number"
 	})
 	public void testOddOrEven_parameterized(int number, String expectedMessage) {
-		NumberChecker numberChecker = new NumberChecker();
-		assertEquals(expectedMessage, numberChecker.oddOrEven(number));
+		assertEquals(expectedMessage, checker.oddOrEven(number));
 	}
 }
