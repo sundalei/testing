@@ -1,7 +1,10 @@
 package com.example.project.extension;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeJdbcDao {
@@ -13,15 +16,34 @@ public class EmployeeJdbcDao {
     }
 
     public void createTable() throws SQLException {
-        // create employee table
+        String createQuery = "CREATE TABLE IF NOT EXISTS employees(id LONG PRIMARY KEY, first_name VARCHAR(50));";
+        PreparedStatement pstmt = connection.prepareStatement(createQuery);
+
+        pstmt.execute();
     }
 
     public void add(Employee employee) throws SQLException {
-        // add employee record
+        String insertQuery = "INSERT INTO employees(id, first_name) VALUES (?, ?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
+        preparedStatement.setLong(1, employee.getId());
+        preparedStatement.setString(2, employee.getFirstName());
+
+        preparedStatement.executeUpdate();
     }
 
     public List<Employee> findAll() throws SQLException {
-        // query all employee records
-        return null;
+        List<Employee> employees = new ArrayList<>();
+        String query = "SELECT * FROM employees";
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            Employee employee = new Employee();
+            employee.setId(rs.getLong("id"));
+            employee.setFirstName(rs.getString("first_name"));
+            employees.add(employee);
+        }
+
+        return employees;
     }
 }

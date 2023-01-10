@@ -12,7 +12,7 @@
 		<junit.version>5.9.1</junit.version>
 		<mockito.version>4.11.0</mockito.version>
 		<log4j.version>2.19.0</log4j.version>
-		<h2.version>2.1.214</h2.version>
+		<mysql.version>8.0.31</mysql.version>
 	</properties>
 
 	<dependencies>
@@ -22,9 +22,9 @@
 			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>${h2.version}</version>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
