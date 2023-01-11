@@ -1,6 +1,7 @@
 package com.example.project.extension;
 
 import java.sql.Connection;
+import java.sql.Savepoint;
 
 import org.junit.jupiter.api.extension.AfterAllCallback;
 import org.junit.jupiter.api.extension.AfterEachCallback;
@@ -12,6 +13,7 @@ public class EmployeeDatabaseSetupExtension implements BeforeAllCallback, AfterA
 
     private Connection connection;
     private EmployeeJdbcDao employeeJdbcDao;
+    private Savepoint savepoint;
 
     public EmployeeDatabaseSetupExtension() {
         this.connection = JdbcConnectionUtil.getConnection();
@@ -25,7 +27,9 @@ public class EmployeeDatabaseSetupExtension implements BeforeAllCallback, AfterA
 
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {
-        
+        System.out.println("EmployeeDatabaseSetupExtension beforeEach is called.");
+        connection.setAutoCommit(false);
+        savepoint = connection.setSavepoint("before");
     }
 
     @Override
