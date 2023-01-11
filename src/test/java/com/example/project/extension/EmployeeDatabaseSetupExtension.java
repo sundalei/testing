@@ -22,7 +22,8 @@ public class EmployeeDatabaseSetupExtension implements BeforeAllCallback, AfterA
 
     @Override
     public void afterEach(ExtensionContext context) throws Exception {
-        
+        System.out.println("EmployeeDatabaseSetupExtension afterEach.");
+        connection.rollback(savepoint);
     }
 
     @Override
@@ -34,7 +35,10 @@ public class EmployeeDatabaseSetupExtension implements BeforeAllCallback, AfterA
 
     @Override
     public void afterAll(ExtensionContext context) throws Exception {
-        
+        System.out.println("EmployeeDatabaseSetupExtension afterAll.");
+        if (connection != null) {
+            connection.close();
+        }
     }
 
     @Override
