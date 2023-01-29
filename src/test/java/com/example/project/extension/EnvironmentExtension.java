@@ -16,7 +16,7 @@ public class EnvironmentExtension implements ExecutionCondition {
         try {
             props.load(EnvironmentExtension.class.getResourceAsStream("/application.properties"));
             String env = props.getProperty("env");
-            System.out.println("env: " + env);
+            
             if ("qa".equalsIgnoreCase(env)) {
                 return ConditionEvaluationResult.disabled("Test disabled on QA environment");
             }
