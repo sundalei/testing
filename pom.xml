@@ -9,10 +9,10 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<junit.version>5.9.1</junit.version>
-		<mockito.version>4.11.0</mockito.version>
+		<junit.version>5.9.2</junit.version>
+		<mockito.version>5.0.0</mockito.version>
 		<log4j.version>2.19.0</log4j.version>
-		<mysql.version>8.0.31</mysql.version>
+		<mysql.version>8.0.32</mysql.version>
 	</properties>
 
 	<dependencies>
