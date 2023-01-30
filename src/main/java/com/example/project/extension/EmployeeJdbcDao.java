@@ -16,7 +16,7 @@ public class EmployeeJdbcDao {
     }
 
     public void createTable() throws SQLException {
-        String createQuery = "CREATE TABLE IF NOT EXISTS employees(id LONG PRIMARY KEY, first_name VARCHAR(50));";
+        String createQuery = "CREATE TABLE IF NOT EXISTS employees(id BIGINT PRIMARY KEY, first_name VARCHAR(50));";
         PreparedStatement pstmt = connection.prepareStatement(createQuery);
 
         pstmt.execute();

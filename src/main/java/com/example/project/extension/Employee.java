@@ -5,6 +5,15 @@ public class Employee {
     private long id;
     private String firstName;
 
+    public Employee() {
+
+    }
+
+    public Employee(long id, String firstName) {
+        this.id = id;
+        this.firstName = firstName;
+    }
+
     public long getId() {
         return id;
     }
